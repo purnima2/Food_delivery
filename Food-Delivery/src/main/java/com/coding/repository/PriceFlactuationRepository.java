@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.LocalTime;
 
 public interface PriceFlactuationRepository extends JpaRepository<PriceFlactuation,Long> {
-    public PriceFlactuation getByTime(LocalTime time);
+    public PriceFlactuation getByFromTimeGreaterThanAndToTimeLessThan(LocalTime fromTime,LocalTime toTime);
 }

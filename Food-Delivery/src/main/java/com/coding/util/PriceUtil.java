@@ -9,6 +9,8 @@ import com.coding.service.PriceFlactuationServiceImpl;
 import com.coding.service.RestaurentService;
 import com.coding.service.RestaurentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalTime;

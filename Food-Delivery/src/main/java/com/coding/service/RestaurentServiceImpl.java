@@ -106,7 +106,7 @@ public class RestaurentServiceImpl implements RestaurentService {
     @Override
     public List<Restaurent> getRastaurentByRating(Integer rating) {
         if(rating != null){
-            List<Restaurent> restaurent = restaurentReposotory.getRestaurent(rating);
+            List<Restaurent> restaurent = restaurentReposotory.getByRating(rating);
             List<Restaurent> restaurentUpdate = new ArrayList<>();
             for(Restaurent res:restaurent){
                 restaurentUpdate.add(util.calFlactuatinPrice(res));

@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "order")
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long orderId;
     Double price;
     @OneToOne

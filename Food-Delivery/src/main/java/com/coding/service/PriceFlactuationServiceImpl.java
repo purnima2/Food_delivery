@@ -3,10 +3,12 @@ package com.coding.service;
 import com.coding.model.PriceFlactuation;
 import com.coding.repository.PriceFlactuationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalTime;
 import java.util.List;
 
+@Component
 public class PriceFlactuationServiceImpl implements PriceFlactuationService {
 @Autowired
     PriceFlactuationRepository priceFlactuationRepository;
@@ -36,7 +38,7 @@ public class PriceFlactuationServiceImpl implements PriceFlactuationService {
     @Override
     public PriceFlactuation getFlactuationByTime(LocalTime localTime) {
         if(localTime != null)
-            return priceFlactuationRepository.getByTime(localTime);
+            return priceFlactuationRepository.getByFromTimeGreaterThanAndToTimeLessThan(localTime,localTime);
         else
             return null;
     }
