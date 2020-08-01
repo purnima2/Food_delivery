@@ -14,5 +14,10 @@ public class OrderExceptionHandler {
         return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Order Not created");
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> fieldMissing(Exception ex) {
+        return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getLocalizedMessage());
+    }
+
 
 }

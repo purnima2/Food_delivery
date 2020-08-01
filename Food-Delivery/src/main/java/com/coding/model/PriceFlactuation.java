@@ -2,14 +2,13 @@ package com.coding.model;
 
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalTime;
 @Entity
 @Table(name = "priceflactuation")
 public class PriceFlactuation {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalTime fromTime;
     private LocalTime toTime;

@@ -26,8 +26,8 @@ public class PriceUtil {
     RestaurentService restaurentService;
 
     public Restaurent calFlactuatinPrice(Restaurent restaurent){
-        if(restaurent!=null&&restaurent.getId()!=null) {
-            PriceFlactuation priceobj = priceFlactuationService.getFlactuationByTime(LocalTime.now());
+        PriceFlactuation priceobj = priceFlactuationService.getFlactuationByTime(LocalTime.now());
+        if(restaurent!=null&&restaurent.getId()!=null && priceobj != null) {
            List<Dish> dishList = new ArrayList<>();
             for(Dish dish:restaurent.getDishes()){
                 Double newprice = dish.getPrice()+((dish.getPrice()*priceobj.getPercentangeChange())/100);
@@ -39,7 +39,7 @@ public class PriceUtil {
             return restaurent;
         }
 
-        return null;
+        return restaurent;
     }
     public Restaurent calFlactuationPriceById(Long restaurentId){
             if(restaurentId!=null) {

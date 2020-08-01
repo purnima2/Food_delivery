@@ -11,7 +11,7 @@ public class DestinationLocation {
     private Long id;
     private String name;
     private String fullAddress;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Restaurent> restaurentList;
 
     public DestinationLocation() {

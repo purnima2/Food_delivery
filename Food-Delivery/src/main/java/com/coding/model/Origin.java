@@ -10,7 +10,7 @@ public class Origin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String origin;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<DestinationLocation> destList;
 
     public Origin() {

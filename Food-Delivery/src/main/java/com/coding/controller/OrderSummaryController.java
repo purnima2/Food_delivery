@@ -25,7 +25,7 @@ public class OrderSummaryController {
     PriceUtil util;
 
     @GetMapping("/order/{orderid}")
-    public ResponseEntity<?> getOrderSummary(@PathVariable Long orderId){
+    public ResponseEntity<?> getOrderSummary(@PathVariable Long orderId) throws Exception {
         if(orderId != null){
             Order order = orderService.readOrder(orderId);
             orderSummary.setOrderid(order.getOrderId());

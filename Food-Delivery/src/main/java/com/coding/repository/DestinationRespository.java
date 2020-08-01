@@ -4,4 +4,5 @@ import com.coding.model.DestinationLocation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DestinationRespository extends JpaRepository<DestinationLocation,Long> {
+    public DestinationLocation getByName(String name);
 }

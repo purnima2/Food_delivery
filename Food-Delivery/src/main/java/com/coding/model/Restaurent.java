@@ -12,9 +12,9 @@ public class Restaurent {
     @GeneratedValue(strategy =GenerationType.AUTO)
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Dish> dishes;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private DestinationLocation destinationLocation;
     private int rating;
 

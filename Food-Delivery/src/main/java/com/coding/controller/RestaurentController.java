@@ -44,19 +44,19 @@ public class RestaurentController {
         return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("restaurent can not be null");
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<?> getRestaurent(@PathVariable Long id){
-        if(id != null){
-            try {
-                Restaurent restaurent = restaurentService.getRestaurent(id);
-                return ResponseEntity.status(HttpStatus.OK).body(restaurent);
-            }catch(Exception e){
-                e.printStackTrace();
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Something is wrong");
-            }
-        }
-        return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id can not be null");
-    }
+//    @GetMapping("/get/{id}")
+//    public ResponseEntity<?> getRestaurent(@PathVariable Long id){
+//        if(id != null){
+//            try {
+//                Restaurent restaurent = restaurentService.getRestaurent(id);
+//                return ResponseEntity.status(HttpStatus.OK).body(restaurent);
+//            }catch(Exception e){
+//                e.printStackTrace();
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Something is wrong");
+//            }
+//        }
+//        return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Id can not be null");
+//    }
 
 
     @PutMapping("/save")
@@ -108,10 +108,10 @@ public class RestaurentController {
     }
 
     @GetMapping("/get/{destination}")
-    public ResponseEntity<?> getRestaurentByDest(@PathVariable Long destId){
-        if(destId !=null){
+    public ResponseEntity<?> getRestaurentByDest(@PathVariable(name = "destination") String destName){
+        if(destName !=null){
             try {
-                DestinationLocation destination = destinationService.getbyId(destId);
+                DestinationLocation destination = destinationService.getbyName(destName);
 
                 return ResponseEntity.status(HttpStatus.OK).body(destination.getRestaurentList());
             }catch(Exception e){

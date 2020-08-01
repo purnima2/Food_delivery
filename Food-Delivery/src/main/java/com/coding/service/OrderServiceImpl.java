@@ -27,8 +27,12 @@ public class OrderServiceImpl implements OrderService{
     public Order readOrder(Long orderId) {
         Order order;
         if(orderId != null){
-            order = orderRepository.getOne(orderId);
-            return order;
+            try {
+                return orderRepository.getOne(orderId);
+            }catch(Exception e){
+                e.printStackTrace();
+                new Exception(e.getLocalizedMessage());
+            }
         }
         return null;
     }

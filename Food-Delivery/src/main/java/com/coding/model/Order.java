@@ -1,18 +1,21 @@
 package com.coding.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long orderId;
     Double price;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
      Restaurent restaurent;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     List<Dish> dishList;
 
     public Order() {
